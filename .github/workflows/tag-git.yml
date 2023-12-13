@@ -16,7 +16,7 @@ jobs:
       - name: 'SETUP - Checkout code'
         uses: 'actions/checkout@v4'
         with:
-          ref: main   
+          ref: master   
       - name: apply tag
         run: |
           git tag ${{ inputs.tag }}
