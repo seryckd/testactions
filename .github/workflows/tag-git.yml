@@ -13,7 +13,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: apply tag
-      run: |
-        git tag ${{ inputs.tag }}
-        git push origin ${{ inputs.tag }}
+      - name: 'SETUP - Checkout code'
+        uses: 'actions/checkout@v4'
+        with:
+          ref: main   
+      - name: apply tag
+        run: |
+          git tag ${{ inputs.tag }}
+          git push origin ${{ inputs.tag }}
