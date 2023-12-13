@@ -1,0 +1,19 @@
+name: apply tag with git
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag Name'
+        required: true
+        type: string
+
+jobs:
+  applytag:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: apply tag
+      run: |
+        git tag ${{ inputs.tag }}
+        git push origin ${{ inputs.tag }}
